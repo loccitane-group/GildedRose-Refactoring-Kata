@@ -26,12 +26,14 @@ class Shop {
 
       const item = this.items[i];
 
+      if (item.name == SULFURAS_ITEM) {
+        continue;
+      }
+
       if (item.name != AGED_BRIE_ITEM && item.name != BACKSTAGE_ITEM) {
         if (item.quality > 0) {
-          if (item.name != SULFURAS_ITEM) {
-            var decrement = item.name != CONJURED_ITEM ? 1 : 2;
-            item.quality = item.quality - decrement;
-          }
+          var decrement = item.name != CONJURED_ITEM ? 1 : 2;
+          item.quality = item.quality - decrement;
         }
       } else {
         if (item.quality < MAX_QUALITY) {
@@ -50,16 +52,14 @@ class Shop {
           }
         }
       }
-      if (item.name != SULFURAS_ITEM) {
-        item.sellIn = item.sellIn - 1;
-      }
+      
+      item.sellIn = item.sellIn - 1;
+      
       if (item.sellIn < 0) {
         if (item.name != AGED_BRIE_ITEM) {
           if (item.name != BACKSTAGE_ITEM) {
             if (item.quality > 0) {
-              if (item.name != SULFURAS_ITEM) {
-                item.quality = item.quality - 1;
-              }
+              item.quality = item.quality - 1;
             }
           } else {
             item.quality = 0;
