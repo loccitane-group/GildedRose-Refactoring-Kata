@@ -1,12 +1,12 @@
 const {Shop, Item} = require("../src/gilded_rose");
 
 describe("Gilded Rose", function() {
-  // it("should Conjured's quality downgrade twice faster as normal objects", function() {
-  //   const gildedRose = new Shop([new Item("Conjured", 10, 10)]);
-  //   const items = gildedRose.updateQuality();
-  //   expect(items[0].quality).toBe(8);
-  //   expect(items[0].sellIn).toBe(9);
-  // });
+  it("should Conjured's quality downgrade twice faster as normal objects", function() {
+    const gildedRose = new Shop([new Item("Conjured Mana Cake", 10, 10)]);
+    const items = gildedRose.updateQuality();
+    expect(items[0].quality).toBe(8);
+    expect(items[0].sellIn).toBe(9);
+  });
 
   // it("should Conjured's quality downgrade 4 times faster after sellin at zero", function() {
   //   const gildedRose = new Shop([new Item("Conjured", 0, 4)]);
@@ -65,7 +65,7 @@ Sulfuras, Hand of Ragnaros, -1, 80
 Backstage passes to a TAFKAL80ETC concert, 14, 21
 Backstage passes to a TAFKAL80ETC concert, 9, 50
 Backstage passes to a TAFKAL80ETC concert, 4, 50
-Conjured Mana Cake, 2, 5
+Conjured Mana Cake, 2, 4
 
 -------- day 2 --------
 name, sellIn, quality
@@ -77,7 +77,7 @@ Sulfuras, Hand of Ragnaros, -1, 80
 Backstage passes to a TAFKAL80ETC concert, 13, 22
 Backstage passes to a TAFKAL80ETC concert, 8, 50
 Backstage passes to a TAFKAL80ETC concert, 3, 50
-Conjured Mana Cake, 1, 4
+Conjured Mana Cake, 1, 2
 
 `);
   });
