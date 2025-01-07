@@ -25,6 +25,11 @@ class Shop {
   constructor(items=[]){
     this.items = items;
   }
+
+  isProductMaxQualityReached(item) {
+    return item.quality === MAX_QUALITY;
+  }
+  
   updateQuality() {
     for (let i = 0; i < this.items.length; i++) {
 
@@ -37,10 +42,10 @@ class Shop {
       if (item.name != AGED_BRIE_ITEM && item.name != BACKSTAGE_ITEM) {
         if (item.quality > 0) {
           var decrement = item.name != CONJURED_ITEM ? 1 : 2;
-          item.quality = item.quality - decrement;
+          item.decreaseQuality(decrement);
         }
       } else {
-        if (item.quality < MAX_QUALITY) {
+        if (!this.isProductMaxQualityReached(item)) {
           item.increaseQuality(1);
           if (item.name == BACKSTAGE_ITEM) {
             if (item.sellIn < 11) {
@@ -63,7 +68,7 @@ class Shop {
         if (item.name != AGED_BRIE_ITEM) {
           if (item.name != BACKSTAGE_ITEM) {
             if (item.quality > 0) {
-              item.quality = item.quality - 1;
+              item.decreaseQuality(1);
             }
           } else {
             item.quality = 0;

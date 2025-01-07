@@ -20,6 +20,16 @@ describe("Gilded Rose", function() {
     expect(item.quality).toBe(0);
   })
 
+  it("should max quality does not exceed 50", () => {
+    const marteau = new Item("marteau", 1, 1)
+    const voiture = new Item("voiture", 1, 50)
+
+    const shop = new Shop([marteau, voiture]);
+
+    expect(shop.isProductMaxQualityReached(marteau)).toBe(false);
+    expect(shop.isProductMaxQualityReached(voiture)).toBe(true);
+  })
+
   // it("should Conjured's quality downgrade 4 times faster after sellin at zero", function() {
   //   const gildedRose = new Shop([new Item("Conjured", 0, 4)]);
   //   const items = gildedRose.updateQuality();
