@@ -14,6 +14,12 @@ describe("Gilded Rose", function() {
     expect(item.quality).toBe(2);
   })
 
+  it("should decrease an item's quality", () => {
+    const item = new Item("basket", 1, 1);
+    item.decreaseQuality(1);
+    expect(item.quality).toBe(0);
+  })
+
   // it("should Conjured's quality downgrade 4 times faster after sellin at zero", function() {
   //   const gildedRose = new Shop([new Item("Conjured", 0, 4)]);
   //   const items = gildedRose.updateQuality();

@@ -8,6 +8,10 @@ class Item {
   increaseQuality(increment) {
     this.quality += increment;
   }
+
+  decreaseQuality(increment) {
+    this.quality -= increment;
+  }
 }
 
 const AGED_BRIE_ITEM = 'Aged Brie';
